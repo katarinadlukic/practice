@@ -26,7 +26,6 @@ myFunction();
 function mouseOver() {
     if (this.id == 0 || this.id == 4) {
         this.style.backgroundColor = "#CC88EE";
-
     }
     if (this.id == 1 || this.id == 5 || this.id == 6) {
         this.style.backgroundColor = "#FF9999";
