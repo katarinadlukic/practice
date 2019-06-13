@@ -25,13 +25,13 @@ myFunction();
 
 function mouseOver() {
     if (this.id == 0 || this.id == 4) {
-        this.style.backgroundColor = "#CC88EE";
+        this.style.backgroundColor = "rgba(204,136,238,0.8)";
     }
     if (this.id == 1 || this.id == 5 || this.id == 6) {
-        this.style.backgroundColor = "#FF9999";
+        this.style.backgroundColor = "rgba(255,153,153, 0.8)";
     };
     if (this.id == 2 || this.id == 3 || this.id == 7) {
-        this.style.backgroundColor = "#FFFF99";
+        this.style.backgroundColor = "rgba(255,255,153,0.8)";
     }
 }
 function mouseOut() {
