@@ -34,7 +34,6 @@ function mouseOver() {
         this.style.backgroundColor = "#FFFF99";
     }
 }
-
 function mouseOut() {
-    this.style.backgroundColor = "rgba(36,36,255,0.5)";
+    this.style.backgroundColor = "rgba(36,36,255,0.1)";
 }
