@@ -92,15 +92,14 @@ function lvlOptions() {
 }
 
 function generateTable() {
-    let arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
-    shuffle(arr); // [3,4,7,3,5,7,3,7,8,91,0] 
+    
     let tblBody = document.createElement("tbody");
     let row1 = document.createElement("tr");
     for (let i = 0; i < 4; i++) {
 
         let cell = document.createElement("td");
         let picButton = document.createElement("button");
-        cell.setAttribute("id", arr[i]);
+        cell.setAttribute("id", i);
         cell.addEventListener("click", check);
         cell.appendChild(picButton);
         row1.appendChild(cell);
@@ -111,7 +110,7 @@ function generateTable() {
 
         let cell = document.createElement("td");
         let picButton = document.createElement("button");
-        cell.setAttribute("id", arr[i]);
+        cell.setAttribute("id", i);
         cell.addEventListener("click", check);
         cell.appendChild(picButton);
         row2.appendChild(cell);
@@ -122,7 +121,7 @@ function generateTable() {
 
         let cell = document.createElement("td");
         let picButton = document.createElement("button");
-        cell.setAttribute("id", arr[i]);
+        cell.setAttribute("id", i);
         cell.addEventListener("click", check);
         cell.appendChild(picButton);
         row3.appendChild(cell);
@@ -133,7 +132,7 @@ function generateTable() {
 
         let cell = document.createElement("td");
         let picButton = document.createElement("button");
-        cell.setAttribute("id", arr[i]);
+        cell.setAttribute("id", i);
         cell.addEventListener("click", check);
         cell.appendChild(picButton);
         row4.appendChild(cell);
