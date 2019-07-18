@@ -30,7 +30,7 @@ function enterGame() {
         let person = prompt("Please enter your name");
         createCookie("username",person, 1);
     }
-    let x = "Katarina"
+    
     createElements(x);
 }
 
