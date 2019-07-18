@@ -9,7 +9,7 @@ let gameDiv = document.getElementById("gameDiv");
             }else {
                 let person = prompt("Please enter your name");
                 createCookie("username",person, 1);
-            
+            }
             
   }
   function listeners(){
