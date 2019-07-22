@@ -1,0 +1,35 @@
+#container {
+
+    width: 700px;
+}
+table {
+    border: 1px solid black;
+    width: 300px;
+    height: 300px;
+}
+ tbody, td {
+    border: 1px solid black;
+    width: 67px;
+    height: 67px;
+}
+tbody{
+    pointer-events: none;
+}
+    td:hover { 
+    cursor: pointer;
+      }
+
+ img {
+    width: 60px;
+    height: 60px;
+    padding: 1px;
+}
+#gameDiv {
+    width: 349px;
+    margin-left: 20px;
+    float: left;
+}
+#scoreDiv {
+    margin-left: 50px;
+    overflow: hidden;
+}
