@@ -19,7 +19,7 @@ let time = 0;
 function enterGame() {
 	let x = readCookie("username");
 	if (x) {
-		generateTable();
+		listeners();
 	} else {
 		let person = prompt("Please enter your name");
 		createCookie("username", person, 1);
@@ -201,7 +201,7 @@ function countdown(t) {
 	}, 1000);
 }
 (function init() {
-	listeners();
+	
 	lvlOptions();
 	generateTable();
 	setTimeout(enterGame, 300);
