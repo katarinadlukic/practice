@@ -23,10 +23,10 @@ function enterGame() {
 	} else {
 		let person = prompt("Please enter your name");
 		createCookie("username", person, 1);
-		if(person !== null){
-			player = person;
+		if(person == null || person == ""){
+			player = "Guest";
 		}else {
-			player = "Guest"
+			player = person;
 		}		
 	}
 	listeners();
