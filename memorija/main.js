@@ -23,7 +23,7 @@ function enterGame() {
 	} else {
 		let person = prompt("Please enter your name");
 		createCookie("username", person, 1);
-		player = readCookie("username");	
+		player = person;	
 	}
 	listeners();
 }
