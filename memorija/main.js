@@ -16,15 +16,16 @@ let timeEnd = 0;
 let timeStart = 0;
 let time = 0;
 
-function enterGame() {
+function enterGame() { 
 	let x = readCookie("username");
 	if (x) {
-		listeners();
+		player = x;
 	} else {
 		let person = prompt("Please enter your name");
 		createCookie("username", person, 1);
+		player = readCookie("username");	
 	}
-	player = x;
+	listeners();
 }
 
 function listeners() {
@@ -51,7 +52,7 @@ function readCookie(name) {
 	return null;
 }
 
-function generateTable() {
+function generateTable() { 
 	let picsId = [0, 1, 2, 3, 4, 5, 6, 7, 0, 1, 2, 3, 4, 5, 6, 7];
 	let arr = shuffle(picsId); // shuffled array
 	let tblBody = document.createElement("tbody");
@@ -81,7 +82,7 @@ function generateTable() {
 let nowFinished = 0;
 let now = 0;
 
-function check(element, value) {
+function check(element, value) { // poredjenje dve slike
 	let imageToCompare = data[value].url;
 	if (element.innerHTML == "" && imgId.length < 2) {
 		element.innerHTML = `<img id='img${value}' src='${imageToCompare}'/>`;
@@ -96,12 +97,12 @@ function check(element, value) {
 				imgId = [];
 				cellId = [];
 				if (openElements == 16) {
-					timeEnd = new Date(); // vreme kad je zavrsena igra
+					timeEnd = new Date(); 
 					displayScore();
 					document.getElementById("tblBody").style.pointerEvents = "none";
 				}
 			} else {
-				function removePictures() {
+				function removePictures() { // sklanjanje slika ako nisu iste
 					document.getElementById(cellId[0]).innerHTML = "";
 					document.getElementById(cellId[1]).innerHTML = "";
 					imgId = [];
@@ -113,7 +114,7 @@ function check(element, value) {
 	}
 }
 
-function shuffle(array) {
+function shuffle(array) { // za random raspored slika u nizu
 	var currentIndex = array.length;
 	var temporaryValue, randomIndex;
 	while (0 !== currentIndex) {
@@ -126,7 +127,7 @@ function shuffle(array) {
 	return array;
 };
 
-function lvlOptions() {
+function lvlOptions() { // opcije za tezinu nivoa
 	let lvlTxt = document.getElementById("lvlTxt");
 	let a = document.getElementById('level');
 	a.addEventListener('change', function() {
@@ -145,7 +146,7 @@ function lvlOptions() {
 	})
 }
 
-function gameStart() {
+function gameStart() { // dugme start osvezava tabelu i setuje novo vreme
 	clearInterval(downloadTimer);
 	openElements = 0;
 	tbl.innerHTML = '';
@@ -164,7 +165,7 @@ function gameStart() {
 	timeStart = new Date();
 }
 let scoreArr = [];
-function displayScore() {
+function displayScore() { // ispis rezultata igre
 	let score = millisToMinutesAndSeconds(timeEnd - timeStart);
 	scoreArr.push(score);
 	scoreArr.sort(function(a,b){return a-b});
@@ -179,14 +180,14 @@ function millisToMinutesAndSeconds(millis) {
 	return seconds;
 }
 
-function countdown(t) {
+function countdown(t) { // brojac
 	let timeleft = t;
 	downloadTimer = setInterval(function() {
 		document.getElementById("welcome").innerHTML = "Seconds remaining: " + timeleft;
 		timeleft -= 1;
 		if (timeleft <= 0) {
 			clearInterval(downloadTimer);
-			document.getElementById("welcome").innerHTML = "Game over. Try again!";
+			document.getElementById("welcome").innerHTML = "You lose. Try again!";
 			document.getElementById("tblBody").style.pointerEvents = "none";
 		}
 		if (openElements == 16) {
@@ -198,7 +199,6 @@ function countdown(t) {
 	}, 1000);
 }
 (function init() {
-	
 	lvlOptions();
 	generateTable();
 	setTimeout(enterGame, 300);
