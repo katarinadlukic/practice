@@ -22,7 +22,7 @@ function enterGame() {
 		player = x;
 	} else {
 		let person = prompt("Please enter your name");
-		if(person == null || person == ""){
+		if(person === null || person === ""){
 			player = "Guest";
 		}else {
 			createCookie("username", person, 1);
