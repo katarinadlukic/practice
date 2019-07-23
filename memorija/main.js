@@ -88,13 +88,9 @@ function check(element, value) {
 		if (imgId.length == 0) {
 			imgId.push(value);
 			cellId.push(element.id);
-			console.log(imgId);
-			console.log(cellId);
 		} else if (imgId.length == 1) {
 			imgId.push(value);
 			cellId.push(element.id);
-			console.log(imgId);
-			console.log(cellId);
 			if (imgId[0] == imgId[1]) {
 				openElements += 2;
 				imgId = [];
@@ -106,10 +102,7 @@ function check(element, value) {
 				}
 			} else {
 				function removePictures() {
-					// debugger;
-					console.log(document.getElementById(cellId[0]));
 					document.getElementById(cellId[0]).innerHTML = "";
-					console.log(document.getElementById(cellId[1]));
 					document.getElementById(cellId[1]).innerHTML = "";
 					imgId = [];
 					cellId = [];
@@ -170,11 +163,15 @@ function gameStart() {
 	}
 	timeStart = new Date();
 }
-
+let scoreArr = [];
 function displayScore() {
-	let scoreCal = timeEnd - timeStart;
-	score = millisToMinutesAndSeconds(scoreCal);
-	document.getElementById("list").innerHTML = `<li>${player}: ${score} sec</li>`
+	let score = millisToMinutesAndSeconds(timeEnd - timeStart);
+	scoreArr.push(score);
+	scoreArr.sort(function(a,b){return a-b});
+	document.getElementById("list").innerHTML = '';
+	for (let i = 0; i < scoreArr.length; i++){
+		document.getElementById("list").innerHTML += `<li>${player}: ${scoreArr[i]} sec</li>`;
+	}
 }
 
 function millisToMinutesAndSeconds(millis) {
